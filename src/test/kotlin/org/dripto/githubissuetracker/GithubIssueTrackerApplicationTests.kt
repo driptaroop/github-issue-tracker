@@ -11,12 +11,12 @@ import strikt.assertions.isLessThan
 @SpringBootTest
 class GithubIssueTrackerApplicationTests {
 
-	@Test
-	fun sampleTest() {
-		expectThat(1+1)
-				.isA<Int>()
-				.isGreaterThan(1)
-				.isLessThan(4)
-				.isEqualTo(2)
-	}
+    @Test
+    fun sampleTest() {
+        expectThat(1 + 1)
+                .isA<Int>()
+                .isGreaterThan(1)
+                .isLessThan(4)
+                .isEqualTo(2)
+    }
 }
