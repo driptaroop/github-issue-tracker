@@ -12,10 +12,6 @@ import strikt.assertions.isLessThan
 class GithubIssueTrackerApplicationTests {
 
 	@Test
-	fun contextLoads() {
-	}
-
-	@Test
 	fun sampleTest() {
 		expectThat(1+1)
 				.isA<Int>()
