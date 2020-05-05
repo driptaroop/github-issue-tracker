@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<checkstyle version="4.3">
+<file name="/Users/driptaroopdas/Documents/workspaces/github/github-issue-tracker/src/main/kotlin/org/dripto/githubissuetracker/GithubIssueTrackerApplication.kt">
+	<error line="10" column="47" severity="warning" message="In most cases using a spread operator causes a full copy of the array to be created before calling a method which has a very high performance penalty." source="detekt.SpreadOperator" />
+</file>
+<file name="/Users/driptaroopdas/Documents/workspaces/github/github-issue-tracker/src/main/kotlin/org/dripto/githubissuetracker/controller/HelloController.kt">
+	<error line="10" column="5" severity="warning" message="world is returning a constant. Prefer declaring a constant instead." source="detekt.FunctionOnlyReturningConstant" />
+</file>
+</checkstyle>
