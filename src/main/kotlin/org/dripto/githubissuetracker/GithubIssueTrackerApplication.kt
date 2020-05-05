@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class GithubIssueTrackerApplication
 
 fun main(args: Array<String>) {
-	runApplication<GithubIssueTrackerApplication>(*args)
+    runApplication<GithubIssueTrackerApplication>(*args)
 }

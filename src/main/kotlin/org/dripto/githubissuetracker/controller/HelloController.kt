@@ -1,11 +1,15 @@
 package org.dripto.githubissuetracker.controller
 
 import org.dripto.githubissuetracker.service.HelloService
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/hello")
-class HelloController (private val helloService: HelloService) {
+class HelloController(private val helloService: HelloService) {
     @GetMapping("/world")
     suspend fun world() = "Hello, World!!"
 
