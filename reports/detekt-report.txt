@@ -1,2 +1,0 @@
-SpreadOperator - [main] at /Users/driptaroopdas/Documents/workspaces/github/github-issue-tracker/src/main/kotlin/org/dripto/githubissuetracker/GithubIssueTrackerApplication.kt:10:47 - Signature=GithubIssueTrackerApplication.kt$(*args)
-FunctionOnlyReturningConstant - [world] at /Users/driptaroopdas/Documents/workspaces/github/github-issue-tracker/src/main/kotlin/org/dripto/githubissuetracker/controller/HelloController.kt:10:5 - Signature=HelloController.kt$HelloController$@GetMapping("/world") suspend fun world()
