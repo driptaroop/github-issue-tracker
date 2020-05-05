@@ -12,7 +12,7 @@ version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
-	mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -26,6 +26,7 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("io.projectreactor:reactor-test")
+	testImplementation("io.strikt:strikt-core:0.26.0")
 }
 
 tasks.withType<Test> {
