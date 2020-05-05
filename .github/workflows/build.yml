@@ -35,3 +35,8 @@ jobs:
 
     - name: execute gradle build
       run: ./gradlew build
+
+    - name: publish sonarqube report
+      run: ./gradle sonarqube
+      env:
+        SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

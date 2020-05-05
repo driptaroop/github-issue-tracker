@@ -7,6 +7,7 @@ plugins {
 	kotlin("plugin.spring") version "1.3.71"
 	id("org.sonarqube") version "2.8"
 	id("io.gitlab.arturbosch.detekt").version("1.8.0")
+	jacoco
 }
 
 group = "org.dripto"
@@ -41,21 +42,42 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "1.8"
 	}
 }
+project.tasks["sonarqube"].dependsOn("detekt")
+project.tasks["sonarqube"].dependsOn("jacocoTestReport")
+
+tasks {
+	jacocoTestReport {
+		reports {
+			xml.isEnabled = true
+			csv.isEnabled = false
+			html.isEnabled = false
+		}
+		dependsOn(test)
+	}
+}
+
+jacoco {
+	toolVersion = "0.8.5"
+	reportsDir = file("$buildDir/reports/jacoco/")
+}
 
 detekt {
 	ignoreFailures = true
 	reports {
 		xml {
 			enabled = true
-			destination = file("reports/detekt-report.xml")
+			destination = file("$buildDir/reports/detekt/report.xml")
 		}
-		html {
-			enabled = true
-			destination = file("reports/detekt-report.html")
-		}
-		txt {
-			enabled = true
-			destination = file("reports/detekt-report.txt")
-		}
+	}
+}
+
+sonarqube {
+	properties {
+		property("sonar.projectKey", "driptaroop_Github-Issue-Tracker")
+		property("sonar.organization", "driptaroop-sonarcloud")
+		property("sonar.host.url", "https://sonarcloud.io")
+		property("sonar.login", System.getProperty("SONARCLOUD_TOKEN"))
+		property("sonar.kotlin.detekt.reportPaths", "$buildDir/reports/detekt/report.xml")
+		property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/test/jacocoTestReport.xml")
 	}
 }
