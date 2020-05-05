@@ -29,13 +29,4 @@ jobs:
         java-version: 11
 
     - name: execute gradle build
-      run: ./gradlew build
-      
-    # Runs a single command using the runners shell
-    - name: Run a one-line script
-      run: ./gradlew --version
-
-    - name: Gradle Build
-      uses: eskatos/gradle-command-action@v1
-      with:
-        arguments: --version
+      run: ./gradlew build --build-cache
