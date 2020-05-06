@@ -31,6 +31,7 @@ dependencies {
 	}
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation("io.strikt:strikt-core:0.26.0")
+	testImplementation("io.mockk:mockk:1.10.0")
 }
 
 tasks.withType<Test> {
