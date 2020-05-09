@@ -47,17 +47,21 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
 
-    - name: Dependency Check
-      run: ./gradlew dependencyCheckAnalyze
-
     - name: build docker image
-      run: ./gradlew jibDockerBuild
+      run: docker build . -t github-issue-tracker:latest
 
     - name: Scan with Phonito Security
       uses: phonito/phonito-scanner-action@master
       with:
         image: github-issue-tracker:latest
         phonito-token: '${{ secrets.PHONITO_TOKEN }}'
+
+    - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: dripto-git-01
+        heroku_email: driptaroop.das@gmail.com
+        usedocker: true #OPTIONAL and DEFAULT - false
 
     - name: SendGrid
       uses: peter-evans/sendgrid-action@v1
