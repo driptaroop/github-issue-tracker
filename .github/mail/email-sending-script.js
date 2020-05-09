@@ -6,9 +6,9 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const msg = {
   to: 'driptaroop.das@gmail.com',
   from: 'driptaroop.das@gmail.com',
-  subject: 'Hello world',
-  text: 'Hello plain world!',
-  html: '<p>Hello HTML world!</p>',
+  subject: 'The build was successful',
+  text: 'The build was successful and was deployed in heroku',
+  html: '<p>The build was successful and was deployed in heroku</p>',
 };
 
 sgMail

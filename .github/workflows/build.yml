@@ -68,7 +68,7 @@ jobs:
       uses: peter-evans/sendgrid-action@v1
       env:
         SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
-        SCRIPT_FILEPATH: ./mail/email-sending-script.js
+        SCRIPT_FILEPATH: ./.github/mail/email-sending-script.js
 
     - name: Send Push Notification
       uses: techulus/push-github-action@v0.0.2
