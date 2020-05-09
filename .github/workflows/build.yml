@@ -56,7 +56,8 @@ jobs:
         image: github-issue-tracker:latest
         phonito-token: '${{ secrets.PHONITO_TOKEN }}'
 
-    - uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
+    - name: deploy to heroku. open https://dripto-git-01.herokuapp.com to access.
+      uses: akhileshns/heroku-deploy@v3.0.4 # This is the action
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: dripto-git-01
