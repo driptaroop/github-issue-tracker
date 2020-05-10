@@ -4,4 +4,4 @@ EXPOSE $PORT
 
 COPY build/libs/github-issue-tracker-*.jar /service.jar
 
-CMD java -jar service.jar --server.port=$PORT
+CMD java -jar service.jar
