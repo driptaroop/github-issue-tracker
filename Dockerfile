@@ -1,7 +1,14 @@
-FROM amazoncorretto:11
+# syntax=docker/dockerfile:experimental
+
+FROM azul/zulu-openjdk-alpine:11
 
 EXPOSE $PORT
 
-COPY build/libs/github-issue-tracker-*.jar /service.jar
+VOLUME /tmp
 
-CMD java -jar service.jar
+RUN addgroup -S demo && adduser -S demo -G demo
+USER demo
+
+COPY build/libs/github-issue-tracker-*.jar /app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar", "-noverify"]
