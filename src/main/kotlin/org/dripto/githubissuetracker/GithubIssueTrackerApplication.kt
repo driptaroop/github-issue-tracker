@@ -1,12 +1,12 @@
 package org.dripto.githubissuetracker
 
+import javax.sql.DataSource
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
-import javax.sql.DataSource
 
 @SpringBootApplication
 class GithubIssueTrackerApplication
