@@ -10,7 +10,6 @@ plugins {
     id("org.owasp.dependencycheck") version "5.3.2.1"
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
-    kotlin("plugin.jpa") version "1.3.72"
     jacoco
 }
 
@@ -31,6 +30,15 @@ version = object {
     override fun toString() = version
 }
 
+/**
+ * enables spring dev tool
+ */
+val developmentOnly by configurations.creating
+configurations {
+    runtimeClasspath {
+        extendsFrom(developmentOnly)
+    }
+}
 repositories {
     jcenter()
 }
@@ -48,6 +56,7 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("io.strikt:strikt-core:0.26.0")
     testImplementation("io.mockk:mockk:1.10.0")
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 tasks.withType<Test> {
