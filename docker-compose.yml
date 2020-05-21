@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  github-issue-tracker:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: github-issue-tracker:latest
+    ports:
+    - 5000:5000
+    environment:
+      PORT: ${PORT}
