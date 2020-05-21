@@ -10,6 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: verify gradle wrapper
+      uses: gradle/wrapper-validation-action@v1
       
     - uses: actions/cache@v1
       with:
@@ -34,3 +37,6 @@ jobs:
 
     - name: execute gradle build
       run: ./gradlew build
+
+    - name: build docker image
+      run: docker build . -t github-issue-tracker:latest
