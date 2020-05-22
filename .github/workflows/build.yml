@@ -51,7 +51,7 @@ jobs:
         SONARCLOUD_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
 
     - name: build docker image
-      run: COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
+      run: DOCKER_BUILDKIT=1 docker build -t github-issue-tracker:latest .
 
     - name: Scan with Phonito Security
       uses: phonito/phonito-scanner-action@master

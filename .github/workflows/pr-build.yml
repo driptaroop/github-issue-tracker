@@ -39,4 +39,4 @@ jobs:
       run: ./gradlew build
 
     - name: build docker image
-      run: COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker-compose build
+      run: DOCKER_BUILDKIT=1 docker build -t github-issue-tracker:latest .
